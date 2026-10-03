@@ -1,14 +1,12 @@
 [project]
 name = "hackathon-starter-api"
 version = "0.1.0"
-description = "FastAPI backend for the Hackathon Starter"
+description = "FastAPI backend with local JSON file storage"
 requires-python = ">=3.11"
 dependencies = [
   "fastapi[standard]>=0.115.0",
   "pydantic-settings>=2.6.0",
   "python-dotenv>=1.0.1",
-  "sqlalchemy[asyncio]>=2.0.36",
-  "asyncpg>=0.30.0",
 ]
 
 [dependency-groups]

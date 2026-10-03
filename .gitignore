@@ -5,5 +5,10 @@ __pycache__/
 *.py[cod]
 .venv/
 node_modules/
+.next/
+out/
+*.tsbuildinfo
 dist/
 .ruff_cache/
+
+backend/data/

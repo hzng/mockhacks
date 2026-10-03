@@ -1,155 +1,68 @@
-# Hackathon Starter
+# Hackathon Collaboration Starter
 
-A reusable frontend and API starter for hackathons: Vite + React + TypeScript, a FastAPI backend, and Supabase Postgres.
-
-## Setup
-
-### 1. Install prerequisites
-
-Install the following tools before starting:
-
-- Node.js `20.19+` or `22.12+`, with npm
-- Python `3.11+`
-- [uv](https://docs.astral.sh/uv/)
-- A Supabase project
-
-### 2. Configure the Supabase database
-
-1. Open your Supabase project and select **Connect**.
-2. Copy a Postgres connection string.
-   - For a persistent local FastAPI process, use the direct connection if your network supports IPv6.
-   - Use the session pooler if it is IPv4-only.
-   - See [Supabase connection options](https://supabase.com/docs/guides/database/connecting-to-postgres).
-3. From the repo root, copy the backend environment example:
-
-```sh
-cp backend/.env.example backend/.env
-```
-
-4. Open `backend/.env` and set `DATABASE_URL` to the copied connection string.
-
-Change its scheme to:
-
-```text
-postgresql+asyncpg://
-```
-
-for the asyncpg driver.
-
-Keep the remaining host, port, username, and database from Supabase's string. Percent-encode special characters in the password.
-
-> **Important:** Do not put the database password or a Supabase service-role key in frontend environment variables. Vite exposes variables prefixed with `VITE_` to browser code.
-
-### 3. Start the FastAPI backend
-
-Open a terminal at the repo root and run:
-
-```sh
-cd backend
-uv sync
-uv run fastapi dev
-```
-
-The API runs at `http://localhost:8000`.
-
-Open `http://localhost:8000/docs` for the interactive API documentation.
-
-The health endpoint at `http://localhost:8000/api/health` returns a successful status when the backend can reach Supabase. Without a configured database connection, it returns an error.
-
-### 4. Start the frontend
-
-Open a second terminal at the repo root and run:
-
-```sh
-cd frontend
-npm install
-npm run dev
-```
-
-Open the Vite URL shown in the terminal, usually:
-
-```text
-http://localhost:5173
-```
-
-The Vite dev server forwards `/api` requests to FastAPI at `http://localhost:8000`.
-
-### 5. Run the linters
-
-For the frontend:
-
-```sh
-cd frontend
-npm run lint
-```
-
-For the backend:
-
-```sh
-cd backend
-uv run ruff check .
-```
-
-### 6. Open the UI component showcase
-
-1. In the running app, turn on **Developer tools** in the top navigation.
-2. Select **UI components** to open `/dev/ui`.
-3. Turn Developer tools off to hide its navigation link and redirect away from the developer page.
-
-The toggle preference is saved in the browser. It controls visibility only; it is **not an authorization boundary**.
-
-Use the **Dark mode** switch in the top navigation to change the app theme. Your theme choice is saved in the browser.
-
-## What's Included
-
-- **Frontend:** App shell, React Router routes, responsive light and dark themes, shared CSS design tokens, reusable UI components, and ESLint.
-- **Backend:** FastAPI app, async SQLAlchemy connection to Supabase Postgres, API route structure, health check, and Ruff configuration.
-- **Developer tools:** The `/dev/ui` component showcase and its page metadata.
-- **Agent guidance:** `AGENTS.md` contains project-specific instructions for coding agents.
-
-## Routes and Developer-Tool Registry
-
-- `/` — Starter landing page with API/database connection status.
-- `/dev/ui` — Showcase for buttons, text and select inputs, checkboxes, switches, cards, badges, alerts, avatars, progress, and loading states.
-
-Page metadata is stored in:
-
-```text
-frontend/src/config/pages.ts
-```
-
-Mark a page with:
-
-```ts
-developerTool: true
-```
-
-to include it in the show/hide toggle.
+The web app runs from the repository root. On Windows, double-click `start.bat` or run `start.bat` in a terminal. On Git Bash or WSL, run `bash ./start.sh`. Both launchers prepare dependencies and start the Next.js frontend and FastAPI backend. Open <http://localhost:3000> in your browser; the Windows launcher opens it automatically. On Windows, close the two server windows to stop the app; in Bash, press Ctrl+C.
 
 ## Project Layout
 
 ```text
-frontend/
-├── src/
-│   ├── app/          App shell and route configuration
-│   ├── api/          Frontend API calls
-│   ├── components/   Shared UI components and health status
-│   ├── config/       Page registry, including developer-tool flags
-│   ├── pages/        Home page and UI showcase page
-│   └── styles/       Global styles and design tokens
-│
-backend/
-├── app/
-│   ├── api/          FastAPI route handlers
-│   └── core/         Settings and database connection
+app/                         # Stable Next.js routes and bridge pages
+├── layout.tsx
+├── page.tsx                  # Main page
+├── feature-1/page.tsx        # Person A workspace
+├── feature-2/page.tsx        # Person B workspace
+├── feature-3/page.tsx        # Person C workspace
+├── feature-4/page.tsx        # Person D workspace
+└── login/page.tsx            # Local demo profile
+main-page/
+├── frontend/MainPage.tsx
+└── frontend/LocalFeatureEditor.tsx  # Shared local-storage editor
+person-a/
+├── frontend/Feature1.tsx
+└── backend/feature1.ts
+person-b/
+├── frontend/Feature2.tsx
+└── backend/feature2.ts
+person-c/
+├── frontend/Feature3.tsx
+└── backend/feature3.ts
+person-d/
+├── frontend/Feature4.tsx
+└── backend/feature4.ts
+auth/
+├── frontend/Login.tsx
+└── backend/auth.ts
+backend/                      # Shared FastAPI API and local JSON storage
+└── data/store.json           # Created at runtime; ignored by Git
+next.config.ts                # Forwards frontend /api requests to FastAPI
+start.bat                     # Windows launcher for both servers
+start.sh                      # Git Bash/WSL launcher for both servers
+.env.local                    # Local-only settings; ignored by Git
+.env.example                  # Shared variable names; no secret values
+package.json
+package-lock.json             # Created by npm install on first launch
+tsconfig.json
+.gitignore
 ```
 
-## Database Development
+Each `app/**/page.tsx` is a small route bridge. The main page reads backend health and storage status. Each feature page can save and clear its own notes through `/api/storage/{key}`; the Next.js `/api` rewrite forwards those requests to FastAPI. The profile page stores a display name in this browser's `localStorage` and is a demo only, not secure authentication.
 
-The starter intentionally has no product-specific tables.
+## Data Storage
 
-Once the hackathon idea defines the data model:
+There is no Supabase dependency. Browser-only preferences or data use browser `localStorage`. Shared local development data is stored by FastAPI as JSON in `backend/data/store.json`. The file is created when first written and ignored by Git. Do not put secrets in browser storage or commit runtime data.
 
-1. Add a Supabase migration.
-2. Create the required tables and relationships.
-3. Add appropriate Row Level Security (RLS) policies for tables exposed through Supabase APIs.
+## Team Ownership and Collaboration
+
+| Owner | Work only in this folder |
+| --- | --- |
+| Person A | `person-a/**` |
+| Person B | `person-b/**` |
+| Person C | `person-c/**` |
+| Person D | `person-d/**` |
+| Integration owner | `app/**`, `auth/**`, shared `backend/**`, root configuration, and environment examples |
+
+Work on a separate branch from `main`, such as `feature/person-a` or `feature/person-d`. Each collaborator should change only their assigned functionality folder. Do not edit another person's folder or shared files without coordinating with the integration owner.
+
+Shared files include route bridges, auth, API/storage infrastructure, `package.json`, `package-lock.json`, `tsconfig.json`, `next.config.ts`, `.gitignore`, `README.md`, `start.sh`, `.env.example`, and any local `.env` file. Changes to these files can affect every collaborator and create merge conflicts. Never commit `.env.local`, API keys, passwords, tokens, or local storage data.
+
+When the actual features are decided, rename `person-a/`, `person-b/`, and `person-c/` to descriptive names and coordinate the corresponding route bridge updates with the integration owner.
+

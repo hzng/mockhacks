@@ -2,7 +2,7 @@ const apiBaseUrl = import.meta.env.VITE_API_BASE_URL ?? ''
 
 export type HealthStatus = {
   status: string
-  database: string
+  storage: string
 }
 
 export async function getHealthStatus(): Promise<HealthStatus> {
