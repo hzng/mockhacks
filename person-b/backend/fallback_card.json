@@ -1,0 +1,21 @@
+{
+  "title": "Make our bakery hours show up on phones",
+  "summary": "Our website's opening hours are missing or cut off when customers view the site on a phone. We need the hours to be easy to find and read on any screen size.",
+  "tasks": [
+    "Find out why the hours section is hidden or broken on small screens",
+    "Fix the layout so the hours display clearly on phones and tablets",
+    "Add the hours near the top of the mobile page or in the footer",
+    "Test the site on at least one iPhone and one Android screen size"
+  ],
+  "done_when": [
+    "Opening hours are visible without zooming on a phone",
+    "Hours look correct on both iPhone and Android screen sizes",
+    "The desktop version of the site still looks the same",
+    "Owner can update the hours text later without help"
+  ],
+  "skills": ["HTML/CSS", "Responsive design", "Website builders (Wix/Squarespace)"],
+  "estimated_hours": 4,
+  "difficulty": "easy",
+  "reward": "Verified portfolio entry from Sweet Crumb Bakery plus a free pastry box",
+  "business_name": "Sweet Crumb Bakery"
+}
