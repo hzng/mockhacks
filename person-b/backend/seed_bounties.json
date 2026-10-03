@@ -1,0 +1,163 @@
+[
+  {
+    "id": "seed-01",
+    "title": "Translate our menu into Spanish and Mandarin",
+    "summary": "Many of our customers are more comfortable reading Spanish or Mandarin. We need our one-page menu translated so everyone can order with confidence.",
+    "tasks": [
+      "Translate the 30-item menu into Spanish",
+      "Translate the same menu into Simplified Chinese",
+      "Keep dish names in English with the translation underneath"
+    ],
+    "done_when": [
+      "Both translations are delivered as editable Word or Google Docs files",
+      "A native speaker has proofread each version",
+      "Prices and item numbers match the English menu exactly"
+    ],
+    "skills": ["Spanish translation", "Mandarin translation"],
+    "estimated_hours": 6,
+    "difficulty": "easy",
+    "reward": "Verified portfolio entry plus a free lunch for two",
+    "business_name": "Monta Vista Pho House",
+    "owner_name": "Linh Tran",
+    "status": "open",
+    "created_at": "2026-09-26T17:10:00+00:00"
+  },
+  {
+    "id": "seed-02",
+    "title": "Clean up our inventory spreadsheet",
+    "summary": "Our inventory lives in one giant Excel file that nobody understands anymore. We want a simple sheet that shows what is low on stock.",
+    "tasks": [
+      "Merge the three duplicate product tabs into one",
+      "Add a column that flags items below a reorder level",
+      "Write a one-page how-to for staff"
+    ],
+    "done_when": [
+      "One tab lists every product exactly once",
+      "Low-stock items turn red automatically",
+      "A staff member can follow the how-to without help"
+    ],
+    "skills": ["Excel", "Data cleanup"],
+    "estimated_hours": 8,
+    "difficulty": "medium",
+    "reward": "Verified portfolio entry plus 15% off at the store for a year",
+    "business_name": "Homestead Hardware",
+    "owner_name": "Dave Kim",
+    "status": "open",
+    "created_at": "2026-09-27T20:45:00+00:00"
+  },
+  {
+    "id": "seed-03",
+    "title": "Design a flyer for our fall food drive",
+    "summary": "We are collecting canned food in November and need an eye-catching flyer for local shops and the De Anza campus.",
+    "tasks": [
+      "Design a one-page flyer with date, drop-off locations, and wanted items",
+      "Make a printable PDF and a square version for Instagram",
+      "Include a QR code that links to our sign-up form"
+    ],
+    "done_when": [
+      "Printable PDF and Instagram image are delivered",
+      "QR code scans and opens the sign-up form",
+      "All dates and addresses are approved by our coordinator"
+    ],
+    "skills": ["Graphic design", "Canva"],
+    "estimated_hours": 3,
+    "difficulty": "easy",
+    "reward": "Verified portfolio entry and volunteer-hours letter",
+    "business_name": "Cupertino Community Food Pantry",
+    "owner_name": "Priya Raman",
+    "status": "open",
+    "created_at": "2026-09-28T16:00:00+00:00"
+  },
+  {
+    "id": "seed-04",
+    "title": "Set up online appointment booking",
+    "summary": "Customers call to book bike tune-ups and we miss calls when we are busy. We want people to book a time slot online.",
+    "tasks": [
+      "Compare two free booking tools and recommend one",
+      "Set up the chosen tool with our services and hours",
+      "Add a Book Now button to our website"
+    ],
+    "done_when": [
+      "A test booking shows up in the shop's calendar",
+      "Customers get a confirmation email",
+      "Owner can block off days without help"
+    ],
+    "skills": ["Website builders (Wix/Squarespace)", "Scheduling tools"],
+    "estimated_hours": 5,
+    "difficulty": "medium",
+    "reward": "Verified portfolio entry plus a free bike tune-up",
+    "business_name": "Stevens Creek Cyclery",
+    "owner_name": "Marco Rossi",
+    "status": "open",
+    "created_at": "2026-09-29T18:30:00+00:00"
+  },
+  {
+    "id": "seed-05",
+    "title": "Fix our Google Maps listing",
+    "summary": "Our Google listing shows the wrong hours and an old phone number, so people show up when we are closed.",
+    "tasks": [
+      "Help us claim and verify the Google Business Profile",
+      "Update hours, phone number, and photos",
+      "Add holiday hours for the next three months"
+    ],
+    "done_when": [
+      "Google search shows the correct hours and phone",
+      "At least five new photos are on the listing",
+      "Owner knows how to log in and edit it"
+    ],
+    "skills": ["Google Business Profile", "Local SEO"],
+    "estimated_hours": 2,
+    "difficulty": "easy",
+    "reward": "Verified portfolio entry plus a bouquet of your choice",
+    "business_name": "Vallco Village Florist",
+    "owner_name": "Grace Chen",
+    "status": "open",
+    "created_at": "2026-09-30T19:15:00+00:00"
+  },
+  {
+    "id": "seed-06",
+    "title": "Build a simple volunteer sign-up page",
+    "summary": "Parents sign up to coach and run snack duty through a messy email chain. We need one page where volunteers can pick a slot.",
+    "tasks": [
+      "Create a sign-up form with game dates and roles",
+      "Show which slots are still open",
+      "Send a reminder email two days before each game"
+    ],
+    "done_when": [
+      "Parents can sign up from a phone in under a minute",
+      "Filled slots disappear from the list",
+      "Reminder email arrives on schedule in a test run"
+    ],
+    "skills": ["Google Forms", "Google Sheets", "Automation"],
+    "estimated_hours": 6,
+    "difficulty": "medium",
+    "reward": "Verified portfolio entry and a reference letter from the league board",
+    "business_name": "Rancho Rinconada Youth Soccer",
+    "owner_name": "Tom Alvarez",
+    "status": "open",
+    "created_at": "2026-10-01T15:40:00+00:00"
+  },
+  {
+    "id": "seed-07",
+    "title": "Make our website accessible for screen readers",
+    "summary": "A patient told us our site is hard to use with a screen reader. We want to fix the biggest problems so everyone can book a visit.",
+    "tasks": [
+      "Run an accessibility checker on the five main pages",
+      "Add alt text to images and labels to form fields",
+      "Fix color contrast on buttons and links"
+    ],
+    "done_when": [
+      "Automated checker reports no critical errors",
+      "The booking form can be completed using only a keyboard",
+      "A short report lists what was fixed"
+    ],
+    "skills": ["HTML/CSS", "Web accessibility"],
+    "estimated_hours": 10,
+    "difficulty": "hard",
+    "reward": "Verified portfolio entry and a LinkedIn recommendation from the practice owner",
+    "business_name": "De Anza Family Dental",
+    "owner_name": "Dr. Sarah Patel",
+    "status": "open",
+    "created_at": "2026-10-02T17:05:00+00:00"
+  }
+]
