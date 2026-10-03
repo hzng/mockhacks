@@ -1,0 +1,283 @@
+.switcher {
+  align-items: center;
+  border-bottom: 1px dashed #cbd4e2;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+}
+
+.switcher button {
+  font-size: 0.9rem;
+  padding: 0.45rem 0.8rem;
+}
+
+.heading {
+  margin: 1rem 0 1.5rem;
+}
+
+.heading h1 {
+  margin-top: 0.5rem;
+}
+
+.error {
+  background: #fdecec;
+  border: 1px solid #f3c2c2;
+  border-radius: 8px;
+  color: #a32424;
+  padding: 0.75rem 1rem;
+}
+
+.notice {
+  background: #fff6e0;
+  border: 1px solid #f2dca6;
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+}
+
+/* Status and thread-entry badges */
+.badge {
+  border-radius: 999px;
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 0.2rem 0.65rem;
+  white-space: nowrap;
+}
+
+.claimed {
+  background: #e3ebfb;
+  color: #2149a8;
+}
+
+.submitted,
+.submit {
+  background: #fff1d6;
+  color: #8a5a00;
+}
+
+.changes_requested,
+.request_changes {
+  background: #fde4e1;
+  color: #a2301f;
+}
+
+.approved,
+.approve {
+  background: #dff3e6;
+  color: #1d6b3a;
+}
+
+/* Task list */
+.taskList {
+  display: grid;
+  gap: 0.75rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.taskRow {
+  color: inherit;
+  display: grid;
+  gap: 0.4rem;
+}
+
+.taskRow:hover {
+  border-color: #2857c5;
+  text-decoration: none;
+}
+
+.rowTop {
+  align-items: flex-start;
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
+}
+
+.yourTurn {
+  color: #2857c5;
+  font-weight: 700;
+}
+
+/* Progress steps */
+.progress {
+  counter-reset: step;
+  display: flex;
+  gap: 0.5rem;
+  list-style: none;
+  margin: 0 0 1.5rem;
+  padding: 0;
+}
+
+.progress li {
+  background: #e7ecf5;
+  border-radius: 8px;
+  color: #59677e;
+  counter-increment: step;
+  flex: 1;
+  padding: 0.6rem 0.75rem;
+  text-align: center;
+}
+
+.progress li::before {
+  content: counter(step) ". ";
+}
+
+.progress li.done {
+  background: #dff3e6;
+  color: #1d6b3a;
+}
+
+.progress li.done::before {
+  content: "✓ ";
+}
+
+.progress li.current {
+  background: #2857c5;
+  color: #fff;
+  font-weight: 700;
+}
+
+/* Two-column task layout */
+.layout {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+}
+
+.column {
+  display: grid;
+  align-content: start;
+  gap: 1rem;
+}
+
+.column h2 {
+  font-size: 1.1rem;
+  margin-top: 0;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  list-style: none;
+  padding: 0;
+}
+
+.chips li {
+  background: #eef2f8;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  padding: 0.2rem 0.6rem;
+}
+
+.checklist {
+  display: grid;
+  gap: 0.6rem;
+  list-style: none;
+  padding: 0;
+}
+
+.checklist label {
+  align-items: flex-start;
+  display: flex;
+  gap: 0.6rem;
+}
+
+.checklist input {
+  flex-shrink: 0;
+  height: 1.1rem;
+  margin-top: 0.1rem;
+  width: 1.1rem;
+}
+
+/* Forms */
+.form {
+  display: grid;
+  gap: 0.4rem;
+}
+
+.form input,
+.form textarea {
+  border: 1px solid #cbd4e2;
+  border-radius: 8px;
+  font: inherit;
+  margin-bottom: 0.6rem;
+  padding: 0.65rem;
+  width: 100%;
+}
+
+.form textarea {
+  min-height: 5rem;
+  resize: vertical;
+}
+
+.quote {
+  border-left: 3px solid #cbd4e2;
+  margin: 0 0 1rem;
+  padding-left: 0.75rem;
+  white-space: pre-wrap;
+}
+
+.waiting {
+  background: #f8fafd;
+}
+
+.approvedCard {
+  background: #f1faf4;
+  border-color: #b9e2c7;
+}
+
+/* Message thread */
+.thread {
+  display: grid;
+  gap: 0.75rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.thread li {
+  background: #f5f7fb;
+  border-radius: 10px;
+  margin-right: 2.5rem;
+  padding: 0.75rem 0.9rem;
+}
+
+.thread li.mine {
+  background: #e8effd;
+  margin-left: 2.5rem;
+  margin-right: 0;
+}
+
+.thread p {
+  margin: 0.4rem 0 0;
+  overflow-wrap: anywhere;
+  white-space: pre-wrap;
+}
+
+.entryHead {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+@media (max-width: 760px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+
+  .progress li {
+    font-size: 0.85rem;
+    padding: 0.5rem 0.25rem;
+  }
+
+  .thread li,
+  .thread li.mine {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
