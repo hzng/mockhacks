@@ -3,7 +3,9 @@ from typing import Any
 from fastapi import APIRouter, HTTPException, Request
 
 from app.core.config import settings
+from app.core.database import DatabaseUnavailableError, check_database_connection
 from app.core.storage import LocalJsonStore
+from app.core.supabase import SupabaseUnavailableError, check_supabase_auth
 
 router = APIRouter(prefix="/api")
 store = LocalJsonStore(settings.local_storage_path)
@@ -20,6 +22,24 @@ async def health() -> dict[str, str]:
         raise HTTPException(status_code=503, detail="Local storage is unavailable")
 
     return {"status": "ok", "storage": "local-file"}
+
+
+@router.get("/health/supabase")
+def supabase_health() -> dict[str, str]:
+    try:
+        check_supabase_auth()
+    except SupabaseUnavailableError as exc:
+        raise HTTPException(status_code=503, detail=str(exc)) from exc
+    return {"status": "ok", "service": "supabase-auth"}
+
+
+@router.get("/health/database")
+def database_health() -> dict[str, str]:
+    try:
+        check_database_connection()
+    except DatabaseUnavailableError as exc:
+        raise HTTPException(status_code=503, detail=str(exc)) from None
+    return {"status": "ok", "service": "postgresql"}
 
 
 @router.get("/storage")
